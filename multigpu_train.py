@@ -137,6 +137,7 @@ def main(argv=None):
     with tf.Session(config=tf.ConfigProto(allow_soft_placement=True)) as sess:
         if FLAGS.restore:
             print('continue training from previous checkpoint')
+            print(FLAGS.checkpoint_path)
             ckpt = tf.train.latest_checkpoint(FLAGS.checkpoint_path)
             saver.restore(sess, ckpt)
         else:
